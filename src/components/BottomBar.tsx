@@ -1,21 +1,23 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackParamList} from '../navigation/types.ts';
 import {NavigationProp} from '@react-navigation/native';
 
-const BottomBar = () => {
+const BottomBar: FC = () => {
   const navigation = useNavigation<NavigationProp<StackParamList>>();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate( 'NewNote', { type:'list'})}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('NewNote', {type: 'list'})}>
         <Image
           source={require('../assets/checkmark.square.png')}
           style={styles.image}
           resizeMode="contain"
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate( 'NewNote', { type:'draw'})}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('NewNote', {type: 'draw'})}>
         <Image
           source={require('../assets/paintbrush.pointed.fill.png')}
           style={styles.image}
@@ -39,7 +41,7 @@ const BottomBar = () => {
 
       <View style={styles.floatingButton}>
         <TouchableOpacity
-          onPress={() => navigation.navigate( 'NewNote',  {type:'note'})}>
+          onPress={() => navigation.navigate('NewNote', {type: 'note'})}>
           <Image
             source={require('../assets/sheets-blank-googlecolors-removebg-preview.png')}
             style={styles.plusIcon}

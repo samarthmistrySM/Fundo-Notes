@@ -13,5 +13,3 @@ export type DrawerParamList = {
     feedback: undefined;
     Help:undefined
 }
-
-

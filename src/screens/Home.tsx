@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
   StyleSheet,
@@ -9,46 +9,16 @@ import {
 } from 'react-native';
 import SearchHeader from '../components/SearchHeader.tsx';
 import BottomBar from '../components/BottomBar.tsx';
-
-interface Note {
-  title: string;
-  description: string;
-}
+import NoteContext from '../context/NoteContext';
 
 const Home = () => {
-  // Using an empty array to show the alert by default
-  const [notes, setNotes] = useState<Note[]>([]);
-
-  const addNote = (title: string, description: string) => {
-    setNotes([...notes, {title, description}]);
-  };
-
-  const clearNotes = () => {
-    setNotes([]);
-  };
-
-  useEffect(() => {
-    handleAddNote();
-  }, []);
-
-  const handleAddNote = (): void => {
-    addNote('sam', 'this is sam');
-    addNote('sam', 'this is sam1');
-    addNote('sam', 'this is sam2');
-    addNote('sam', 'this is sam3');
-    addNote('sam', 'this is sam5');
-    addNote('sam', 'this is sam7');
-    addNote('sam', 'this is sam6');
-    addNote('sam', 'this is sam6');
-    addNote('sam', 'this is sam6');
-    addNote('sam', 'this is sam6');
-    addNote('sam', 'this is sam4');
-  };
+  const [toggleGrid, setToggleGrid] = useState<boolean>(true);
+  const {notes} = useContext(NoteContext);
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <SearchHeader />
+        <SearchHeader toggleGrid={toggleGrid} setToggleGrid={setToggleGrid} />
         <ScrollView
           style={styles.body}
           contentContainerStyle={[
@@ -66,11 +36,33 @@ const Home = () => {
               </Text>
             </View>
           ) : (
-            <View style={styles.notesContainer}>
+            <View
+              style={[
+                styles.notesContainer,
+                toggleGrid && {
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between',
+                },
+              ]}>
               {notes.map((note, index) => (
-                <View key={index} style={styles.noteItem}>
+                <View
+                  key={index}
+                  style={[
+                    styles.noteItem,
+                    toggleGrid ? {width: '49%'} : {width: '100%'},
+                  ]}>
                   <Text style={styles.noteTitle}>{note.title}</Text>
-                  <Text>{note.description}</Text>
+                  {note.type === 'note' && <Text>{note.description}</Text>}
+                  {note.type === 'list' &&
+                    note.items.map((item, i) => (
+                      <View key={i} style={styles.itemContainer}>
+                        <View style={styles.checkbox}>
+                          {item.checked && <View style={styles.checked} />}
+                        </View>
+                        <Text>{item.text}</Text>
+                      </View>
+                    ))}
                 </View>
               ))}
             </View>
@@ -129,6 +121,29 @@ const styles = StyleSheet.create({
   noteTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderColor: '#888',
+    borderRadius: 4,
+    marginRight: 12,
+    marginTop: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checked: {
+    width: 12,
+    height: 12,
+    backgroundColor: '#888',
+    borderRadius: 2,
+  },
+  itemContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
   },
 });
 

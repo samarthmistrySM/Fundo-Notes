@@ -1,16 +1,51 @@
-import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import React, { FC, useState } from 'react';
+import { View, StyleSheet, TextInput, Alert, Button } from 'react-native';
+import { Note } from '../types';
 
-const NoteBody = () => {
+interface Props {
+    addNote: (note: Note) => void;
+}
+
+const NoteBody: FC<Props> = ({ addNote }) => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const handleAddOrUpdateNote = () => {
+        if (title.trim() === '' && description.trim() === '') {
+            Alert.alert(
+                'Empty Note',
+                'Please enter a title or description to save the note.',
+            );
+            return;
+        }
+
+        const note: Note = {
+            id: Date.now().toString(),
+            title: title.trim(),
+            description: description.trim(),
+            type: 'note',
+        };
+
+        addNote(note);
+    };
+
     return (
         <View style={styles.container}>
-            <TextInput style={styles.title} placeholder="Title" placeholderTextColor="#aaa"/>
             <TextInput
-                placeholder="Note"
+                style={styles.title}
+                placeholder="Title"
                 placeholderTextColor="#aaa"
+                value={title}
+                onChangeText={setTitle}
+            />
+            <TextInput
                 style={styles.content}
+                placeholder="Description"
+                placeholderTextColor="#aaa"
+                value={description}
+                onChangeText={setDescription}
                 multiline
             />
+            <Button title="Save" onPress={handleAddOrUpdateNote} />
         </View>
     );
 };

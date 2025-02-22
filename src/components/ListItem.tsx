@@ -1,22 +1,19 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {View, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 
 interface Props {
   onChangeText: (text: string) => void;
   value: string;
   placeholder: string;
+  checked:boolean
+  onToggle:()=>void;
 }
 
-const ListItem: FC<Props> = ({onChangeText, value, placeholder}) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleToggle = (): void => {
-    setChecked(!checked);
-  };
+const ListItem: FC<Props> = ({onChangeText, value, placeholder,checked,onToggle}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handleToggle} style={styles.checkbox}>
+      <TouchableOpacity onPress={onToggle} style={styles.checkbox}>
         {checked && <View style={styles.checked} />}
       </TouchableOpacity>
       <TextInput

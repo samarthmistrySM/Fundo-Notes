@@ -1,8 +1,13 @@
 import React from 'react';
 import Navigator from './navigation/Navigator.tsx';
+import NoteState from './context/NoteState.tsx';
 
 const App = () => {
-  return <Navigator />;
+  return (
+    <NoteState>
+      <Navigator />
+    </NoteState>
+  );
 };
 
 export default App;

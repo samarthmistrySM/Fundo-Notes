@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC,useContext} from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import NoteHeader from '../components/NoteHeader';
 import NoteFooter from '../components/NoteFooter';
@@ -7,10 +7,12 @@ import NoteListBody from '../components/NoteListBody';
 import DrawNoteBody from '../components/DrawNoteBody';
 import {StackParamList} from '../navigation/types.ts';
 import {StackScreenProps} from '@react-navigation/stack';
+import NoteContext from '../context/NoteContext';
 
 type Props = StackScreenProps<StackParamList, 'NewNote'>;
 
 const NewNote: FC<Props> = ({route}) => {
+  const {addNote} = useContext(NoteContext);
   const {type} = route.params;
 
   return (
@@ -19,7 +21,7 @@ const NewNote: FC<Props> = ({route}) => {
           <NoteHeader />
           {type !== 'draw' ? (
               <ScrollView style={styles.scrollContainer}>
-                {type === 'note' ? <NoteBody /> : <NoteListBody />}
+                {type === 'note' ? <NoteBody addNote={addNote} /> : <NoteListBody addNote={addNote}/>}
               </ScrollView>
           ) : (
               <DrawNoteBody />

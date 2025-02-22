@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {
   View,
   TextInput,
@@ -11,11 +11,13 @@ import {useNavigation} from '@react-navigation/native';
 import {DrawerParamList} from '../navigation/types.ts';
 
 type NavigationProp = DrawerNavigationProp<DrawerParamList>;
+interface Props {
+  toggleGrid: boolean;
+  setToggleGrid: (value: boolean) => void;
+}
 
-const SearchHeader: FC = () => {
+const SearchHeader: FC<Props> = ({toggleGrid, setToggleGrid}) => {
   const navigation = useNavigation<NavigationProp>();
-  const [toggleGrid, setToggleGrid] = useState(false);
-
   const handleToggleGrid = () => {
     setToggleGrid(!toggleGrid);
   };
