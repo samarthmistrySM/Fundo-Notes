@@ -1,0 +1,77 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Roboto-Black.ttf",
+      "sha1": "d1678489a8d5645f16486ec52d77b651ff0bf327"
+    },
+    {
+      "path": "assets/fonts/Roboto-Bold.ttf",
+      "sha1": "508c35dee818addce6cc6d1fb6e42f039da5a7cf"
+    },
+    {
+      "path": "assets/fonts/Roboto-ExtraLight.ttf",
+      "sha1": "df556e64732e5c272349e13cb5f87591a1ae779b"
+    },
+    {
+      "path": "assets/fonts/Roboto-Light.ttf",
+      "sha1": "318b44c0a32848f78bf11d4fbf3355d00647a796"
+    },
+    {
+      "path": "assets/fonts/Roboto-Regular.ttf",
+      "sha1": "3bff51436aa7eb995d84cfc592cc63e1316bb400"
+    },
+    {
+      "path": "assets/fonts/Roboto-SemiBold.ttf",
+      "sha1": "9ca139684fe902c8310dd82991648376ac9838db"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-Black.ttf",
+      "sha1": "317f765e1f770c422243ccdd7d0b8cf408c58db4"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-Bold.ttf",
+      "sha1": "b872ba48fedf30d87dd5353b5e4b58285aef964b"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-ExtraLight.ttf",
+      "sha1": "1cc9dfa74b6f7f11dc088c87b552db211cc3db5a"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-Light.ttf",
+      "sha1": "1daf12253cbd45c84a4f3b04d2ccea83d40446cb"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-Regular.ttf",
+      "sha1": "8870afc8d2c6f82cd46dac833e8dc644bf6d771e"
+    },
+    {
+      "path": "assets/fonts/Roboto_Condensed-SemiBold.ttf",
+      "sha1": "d42a31da6b171049086ebf69625e842d0029c8cd"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-Black.ttf",
+      "sha1": "082786ff6c5447dd71d84cd958ad49550e34e946"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-Bold.ttf",
+      "sha1": "99fb3094f90c81f8e7170465a323c45cf4cf7228"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-ExtraLight.ttf",
+      "sha1": "b6acaaf04d5f10f75675165ff29f11abdc18d924"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-Italic.ttf",
+      "sha1": "9e565a7a8c94822df9ca33458f1ce1b97bd8d4b0"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-Regular.ttf",
+      "sha1": "3b088ea557c90e6dbf60894e06ef934ede330106"
+    },
+    {
+      "path": "assets/fonts/Roboto_SemiCondensed-SemiBold.ttf",
+      "sha1": "edc6d5cc92d79e84637a78cde2e3adfe4e085c2d"
+    }
+  ]
+}
